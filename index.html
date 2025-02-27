@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EST - 인공지능 혁신 기업</title>
+  <style>
+    :root {
+      --primary: #4361ee;
+      --secondary: #3a0ca3;
+      --accent: #4cc9f0;
+      --dark: #212121;
+      --light: #ffffff;
+      --gray: #f8f9fa;
+      --text: #333333;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--light);
+      padding: 8rem 0 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: url('/api/placeholder/1600/900') center/cover no-repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    header .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .logo {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .logo::after {
+      content: "";
+      position: absolute;
+      height: 6px;
+      width: 40px;
+      background: var(--accent);
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+    
+    header h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    header p {
+      font-size: 1.4rem;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .header-subtitle {
+      font-size: 1.6rem;
+      margin: 1.5rem 0;
+      font-weight: 300;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      margin-top: 2rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(76, 201, 240, 0.4);
+    }
+    
+    nav {
+      background-color: var(--light);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 0.5rem 0;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-menu li {
+      margin-left: 2rem;
+    }
+    
+    .nav-menu a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    
+    .nav-menu a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-menu a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+    
+    section {
+      padding: 6rem 0;
+    }
+    
+    section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      text-align: center;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    
+    section h2::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background-color: var(--primary);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    
+    .section-description {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      font-size: 1.1rem;
+      color: #555;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background: var(--light);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      z-index: -1;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .service-card p {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .service-link span {
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+    }
+    
+    .service-link:hover span {
+      transform: translateX(5px);
+    }
+    
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .about-image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .about-content h2 {
+      text-align: left;
+    }
+    
+    .about-content h2::after {
+      left: 0;
+      transform: none;
+    }
+    
+    .about-content p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--gray);
+      border-radius: 10px;
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+    
+    .stat-label {
+      font-size: 1rem;
+      color: #666;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .team-card {
+      background-color: var(--light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+    
+    .team-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .team-image {
+      height: 250px;
+      overflow: hidden;
+    }
+    
+    .team-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .team-card:hover .team-image img {
+      transform: scale(1.05);
+    }
+    
+    .team-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .team-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .team-info p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .testimonial-section {
+      background-color: var(--gray);
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    
+    .testimonial-card {
+      background-color: var(--light);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 5rem;
+      font-family: serif;
+      color: rgba(67, 97, 238, 0.1);
+      line-height: 1;
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .testimonial-author-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 1rem;
+    }
+    
+    .testimonial-author-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .testimonial-author-info h4 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    
+    .testimonial-author-info p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .contact-section {
+      position: relative;
+    }
+    
+    .contact-section::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: url('/api/placeholder/1600/900') center/cover no-repeat;
+      opacity: 0.05;
+      z-index: -1;
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    
+    .contact-form {
+      background-color: var(--light);
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    
+    textarea.form-control {
+      resize: vertical;
+      min-height: 150px;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--light);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+    }
+    
+    .contact-info-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-info-icon {
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-right: 1rem;
+      font-size: 1.3rem;
+    }
+    
+    .contact-info-content h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    .contact-info-content p {
+      margin: 0;
+      color: #666;
+    }
+    
+    footer {
+      background-color: var(--dark);
+      color: var(--light);
+      padding: 4rem 0 2rem;
+    }
+    
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    
+    .footer-about p {
+      opacity: 0.8;
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .social-link:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-heading {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.7rem;
+    }
+    
+    .footer-heading::after {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 3px;
+      background-color: var(--primary);
+      bottom: 0;
+      left: 0;
+      border-radius: 2px;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+      padding-left: 5px;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    @media (max-width: 992px) {
+      header {
+        padding: 6rem 0 4rem;
+      }
+      
+      header h1 {
+        font-size: 3rem;
+      }
+      
+      .about-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 60px);
+        background-color: var(--light);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .nav-menu.active {
+        left: 0;
+      }
+      
+      .nav-menu li {
+        margin: 1.5rem 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      header h1 {
+        font-size: 2.5rem;
+      }
+      
+      header p, .header-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      section h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-container">
+      <a href="#" class="nav-logo">EST</a>
+      <ul class="nav-menu">
+        <li><a href="#home">홈</a></li>
+        <li><a href="#about">회사소개</a></li>
+        <li><a href="#services">서비스</a></li>
+        <li><a href="#team">팀</a></li>
+        <li><a href="#testimonials">고객사례</a></li>
+        <li><a href="#contact">연락처</a></li>
+      </ul>
+      <div class="mobile-menu-btn">≡</div>
+    </div>
+  </nav>
+
+  <header id="home">
+    <div class="container">
+      <div class="logo">EST</div>
+      <h1>AI로 혁신하는 비즈니스의 미래</h1>
+      <p class="header-subtitle">인공지능 기술로 기업의 디지털 전환을 선도합니다</p>
+      <p>EST는 최첨단 AI 기술과 전문가 팀을 통해 복잡한 비즈니스 문제를 해결하고 새로운 가치를 창출합니다.</p>
+      <a href="#contact" class="cta-button">무료 상담 받기</a>
+    </div>
+  </header>
+
+  <section id="about" class="animate-on-scroll">
+    <div class="container">
+      <div class="about-container">
+        <div class="about-image">
+          <img src="/api/placeholder/600/400" alt="EST 회사 이미지">
+        </div>
+        <div class="about-content">
+          <h2>혁신을 이끄는 EST</h2>
+          <p>2020년 설립된 EST는 인공지능 기술을 통해 기업의 디지털 혁신을 이끌어가는 선도적인 AI 전문 기업입니다. 100여 명의 데이터 과학자, AI 엔지니어, 소프트웨어 개발자로 구성된 전문가 팀이 고객사의 비즈니스 문제를 해결하고 성장을 가속화하는 혁신적인 솔루션을 제공합니다.</p>
+          <p>금융, 의료, 제조, 유통 등 다양한 산업 분야에서 150개 이상의 프로젝트를 성공적으로 수행하며 AI 기술의 실질적인 비즈니스 가치를 입증해왔습니다. EST의 모든 솔루션은 고객의 비즈니스 목표와 요구사항을 깊이 이해하는 것에서 시작하여, 최적화된 AI 모델과 시스템을 통해 가시적인 성과를 창출합니다.</p>
+          <p>EST는 단순한 기술 공급자가 아닌 고객의 성공을 함께 만들어가는 혁신의 파트너로서, 지속 가능한 디지털 전환과 비즈니스 성장을 위한 여정에 함께합니다.</p>
+        </div>
+      </div>
+      
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">AI 전문가</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">150+</div>
+          <div class="stat-label">성공 프로젝트</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">파트너사</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5년</div>
+          <div class="stat-label">업계 경험</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="animate-on-scroll">
+    <div class="container">
+      <h2>EST 서비스</h2>
+      <p class="section-description">EST는 인공지능과 데이터 분석 기술을 활용하여 기업의 다양한 비즈니스 요구를 충족시키는 종합적인 서비스를 제공합니다.</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🤖</div>
+          <h3>맞춤형 AI 솔루션</h3>
+          <p>기업의 특정 비즈니스 문제를 해결하기 위한 맞춤형 AI 모델을 개발하고 구현합니다. 자연어 처리, 컴퓨터 비전, 예측 분석 등 최신 AI 기술을 활용한 솔루션을 제공합니다.</p>
+          <a href="#" class="service-link">자세히 보기 <span>→</span></a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>빅데이터 분석 및 인사이트</h3>
+          <p>방대한 데이터에서 의미 있는 패턴과 트렌드를 발견하여 데이터 기반 의사결정을 지원합니다. 고급 분석 기법을 통해 비즈니스 인사이트를 도출하고 전략적 방향성을 제시합니다.</p>
+          <a href="#" class="service-link">자세히 보기 <span>→</span></a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>업무 자동화 시스템</h3>
+          <p>반복적이고 시간 소모적인 업무 프로세스를 AI와 머신러닝 기술을 활용하여 자동화합니다. 업무 효율성을 크게 향상시키고 인적 오류를 최소화하며 리소스를 절약합니다.</p>
+          <a href="#" class="service-link">자세히 보기 <span>→</span></a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">💡</div>
+          <h3>AI 전략 컨설팅</h3>
+          <p>기업의 디지털 전환을 위한 AI 도입 전략과 로드맵을 수립합니다. 비즈니스 목표에 맞는 최적의 AI 기술 적용 방안을 제시하고 단계적 구현을 지원합니다.</p>
+          <a href="#" class="service-link">자세히 보기 <span>→</span></a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🔍</div>
+          <h3>AI 기반 예측 분석</h3>
+          <p>과거 데이터와 실시간 데이터를 분석하여 미래 트렌드와 결과를 예측합니다. 수요 예측, 고객 행동 예측, 리스크 관리 등 다양한 분야에서 활용 가능합니다.</p>
+          <a href="#" class="service-link">자세히 보기 <span>→</span></a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🛠️</div>
+          <h3>AI 솔루션 유지보수</h3>
+          <p>구축된 AI 시스템의 안정적인 운영과 지속적인 성능 최적화를 지원합니다. 정기적인 모델 업데이트와 기술 지원으로 솔루션의 효과를 극대화합니다.</p>
+          <a href="#" class="service-link">자세히 보기 <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="animate-on-scroll">
+    <div class="container">
+      <h2>전문가 팀</h2>
+      <p class="section-description">EST의 성공은 열정과 전문성을 갖춘 인재들로부터 시작됩니다. 다양한 배경과 경험을 가진 전문가들이 혁신적인 AI 솔루션을 만들어갑니다.</p>
+      
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-image">
+            <img src="/api/placeholder/400/400" alt="팀원 이미지">
+          </div>
+          <div class="team-info">
+            <h3>김지원</h3>
+            <p>CEO & 창립자</p>
+          </div>
+        </div>
+        
+        <div class="team-card">
+          <div class="team-image">
+            <img src="/api/placeholder/400/400" alt="팀원 이미지">
+          </div>
+          <div class="team-info">
+            <h3>박민재</h3>
+            <p>AI 연구 책임자</p>
+          </div>
+        </div>
+        
+        <div class="team-card">
+          <div class="team-image">
+            <img src="/api/placeholder/400/400" alt="팀원 이미지">
+          </div>
+          <div class="team-info">
+            <h3>이하은</h3>
+            <p>데이터 사이언스 리더</p>
+          </div>
+        </div>
+        
+        <div class="team-card">
+          <div class="team-image">
+            <img src="/api/placeholder/400/400" alt="팀원 이미지">
+          </div>
+          <div class="team-info">
+            <h3>정승현</h3>
+            <p>솔루션 아키텍트</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonial-section animate-on-scroll">
+    <div class="container">
+      <h2>고객 사례</h2>
+      <p class="section-description">EST의 솔루션을 통해 비즈니스 혁신을 경험한 고객들의 이야기를 들어보세요.</p>
+      
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">EST의 AI 기반 예측 분석 솔루션을 도입한 후, 수요 예측 정확도가 35% 향상되었습니다. 이를 통해 재고 비용을 크게 절감하고 고객 만족도를 높일 수 있었습니다.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-image">
+              <img src="/api/placeholder/100/100" alt="고객 이미지">
+            </div>
+            <div class="testimonial-author-info">
+              <h4>이태영</h4>
+              <p>A사 물류 총괄 이사</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <p class="testimonial-text">복잡한 금융 데이터를 분석하고 의미 있는 인사이트를 도출하는 EST의 능력은 정말 인상적입니다. 그들의 솔루션 덕분에 리스크 관리 프로세스가 완전히 개선되었습니다.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-image">
+              <img src="/api/placeholder/100/100" alt="고객 이미지">
+            </div>
+            <div class="testimonial-author-info">
+              <h4>김현주</h4>
+              <p>B증권 혁신기술팀장</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <p class="testimonial-text">EST의 업무 자동화 시스템을 도입한 후, 직원들이 단순 반복 업무에서 벗어나 더 가치 있는 업무에 집중할 수 있게 되었습니다. 생산성이 60% 이상 향상되었습니다.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-image">
+              <img src="/api/placeholder/100/100" alt="고객 이미지">
+            </div>
+            <div class="testimonial-author-info">
+              <h4>박성민</h4>
+              <p>C제조 디지털혁신 책임자</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section animate-on-scroll">
+    <div class="container">
+      <h2>연락처</h2>
+      <p class="section-description">EST와 함께 AI 기반 디지털 혁신을 시작해보세요. 무료 상담을 통해 귀사의 비즈니스 과제에 대한 맞춤형 솔루션을 제안해 드립니다.</p>
+      
+      <div class="contact-container">
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <label for="name" class="form-label">이름</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="company" class="form-label">회사명</label>
+              <input type="text" id="company" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">이메일</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone" class="form-label">연락처</label>
+              <input type="tel" id="phone" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">문의사항</label>
+              <textarea id="message" class="form-control" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">상담 신청하기</button>
+          </form>
+        </div>
+        
+        <div class="contact-info-container">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📍</div>
+            <div class="contact-info-content">
+              <h3>주소</h3>
+              <p>서울특별시 강남구 테헤란로 123 EST타워 15층</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📞</div>
+            <div class="contact-info-content">
+              <h3>전화</h3>
+              <p>02-1234-5678</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-item">
+            <div class="contact-info-icon">✉️</div>
+            <div class="contact-info-content">
+              <h3>이메일</h3>
+              <p>contact@est.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-item">
+            <div class="contact-info-icon">⏱️</div>
+            <div class="contact-info-content">
+              <h3>업무시간</h3>
+              <p>평일 09:00 - 18:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo">EST</div>
+          <p>인공지능 기술로 기업의 미래를 혁신하는 EST는 고객과 함께 지속가능한 성장을 추구합니다.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">F</a>
+            <a href="#" class="social-link">T</a>
+            <a href="#" class="social-link">I</a>
+            <a href="#" class="social-link">L</a>
+          </div>
+        </div>
+        
+        <div class="footer-links-container">
+          <h4 class="footer-heading">퀵 링크</h4>
+          <ul class="footer-links">
+            <li><a href="#home">홈</a></li>
+            <li><a href="#about">회사소개</a></li>
+            <li><a href="#services">서비스</a></li>
+            <li><a href="#team">팀</a></li>
+            <li><a href="#contact">연락처</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links-container">
+          <h4 class="footer-heading">서비스</h4>
+          <ul class="footer-links">
+            <li><a href="#">맞춤형 AI 솔루션</a></li>
+            <li><a href="#">빅데이터 분석</a></li>
+            <li><a href="#">업무 자동화 시스템</a></li>
+            <li><a href="#">AI 전략 컨설팅</a></li>
+            <li><a href="#">예측 분석</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links-container">
+          <h4 class="footer-heading">자료실</h4>
+          <ul class="footer-links">
+            <li><a href="#">케이스 스터디</a></li>
+            <li><a href="#">기술 블로그</a></li>
+            <li><a href="#">백서</a></li>
+            <li><a href="#">뉴스룸</a></li>
+            <li><a href="#">채용정보</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 EST. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('scroll', function() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach(element => {
+        if (element.getBoundingClientRect().top < window.innerHeight) {
+          element.classList.add('visible');
+        }
+      });
+    });
+    
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    mobileMenuBtn.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
